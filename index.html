@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nauman Khan | Self Portfolio</title>
+  <meta name="description" content="Portfolio of Nauman Khan - Aspiring Software Engineer & B.Tech CSE student at Symbiosis Institute of Technology, Nagpur." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-border: #1f293d;
+      --surface-hover: #162032;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.18);
+      --accent-secondary: #818cf8;
+      --card-bg: #0f172a;
+      --radius: 14px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-border: #e2e8f0;
+      --surface-hover: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+      --accent-glow: rgba(2, 132, 199, 0.12);
+      --accent-secondary: #6366f1;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .brand-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    [data-theme="light"] header {
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .brand-logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .brand-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .theme-toggle {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5.5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-glow);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-size: 2.85rem;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      max-width: 540px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #041019;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 20px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border-color: var(--surface-border);
+    }
+
+    .btn-outline:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-avatar {
+      display: flex;
+      justify-content: center;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      padding: 5px;
+      animation: morph 8s ease-in-out infinite alternate;
+      box-shadow: 0 20px 40px var(--accent-glow);
+    }
+
+    @keyframes morph {
+      0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+      100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      background: var(--surface);
+      border-radius: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .avatar-inner i {
+      font-size: 4.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Sections */
+    .section {
+      padding: 5rem 0;
+      border-top: 1px solid var(--surface-border);
+    }
+
+    .section-header {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+    }
+
+    /* Grids & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      border-left: 2px solid var(--surface-border);
+      margin-left: 1rem;
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2.6rem;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 4px solid var(--bg);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    .timeline-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-subtitle {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Chips */
+    .chip-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-chip {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: var(--transition);
+    }
+
+    .skill-chip i {
+      color: var(--accent);
+    }
+
+    .skill-chip:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+      color: var(--accent);
+    }
+
+    .tag {
+      background: var(--accent-glow);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    /* Project Cards */
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Certificate Cards */
+    .cert-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .cert-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cert-icon {
+      font-size: 1.75rem;
+      color: var(--accent);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius);
+      max-width: 580px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Forms */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      padding: 0.75rem 0.95rem;
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 0.92rem;
+      outline: none;
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--surface-border);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 3rem;
+      }
+      .hero-subtitle {
+        margin: 0 auto 1.75rem;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .avatar-wrapper {
+        margin: 0 auto;
+        width: 210px;
+        height: 210px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="brand-logo">
+          <span>&lt;</span>Nauman Khan<span> /&gt;</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Startup Role</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="#visitors">Live Log</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero container">
+    <div>
+      <div class="hero-badge">
+        <i class="fa-solid fa-graduation-cap"></i> 3rd Year B.Tech CSE • Semester 5 • SIT Nagpur
+      </div>
+      <h1 class="hero-title">
+        Building practical tech solutions with <span class="gradient-text">Python & AI</span>.
+      </h1>
+      <p class="hero-subtitle">
+        Aspiring software engineer at Symbiosis Institute of Technology, combining hands-on technical software development with creative storytelling and startup problem-solving.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-diagram-project"></i> View Projects
+        </a>
+        <a href="https://github.com/Nauman-code321" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <i class="fa-brands fa-github"></i> GitHub Profile
+        </a>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <div class="avatar-wrapper">
+        <div class="avatar-inner">
+          <i class="fa-solid fa-terminal"></i>
+          <strong>Nauman Khan</strong>
+          <small style="color: var(--accent); font-size: 0.8rem; margin-top: 2px;">SIT Nagpur</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">About Me</span>
+        <h2 class="section-title">Aspiring Engineer & Storyteller</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="margin-bottom: 0.75rem;"><i class="fa-solid fa-compass" style="color: var(--accent); margin-right: 0.5rem;"></i> Personal Profile</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+            I am an aspiring software engineer interested in Python programming, artificial intelligence, and building practical solutions to real-world problems. I enjoy learning new technologies, exploring innovative ideas, and developing my technical skills through hands-on projects.
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            My goal is to become a versatile engineer who combines creativity, problem-solving, and technical knowledge to build impactful solutions.
+          </p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom: 0.75rem;"><i class="fa-solid fa-lightbulb" style="color: var(--accent); margin-right: 0.5rem;"></i> Campus Involvement</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+            Active member of the <strong>Entrepreneurship Club at SIT Nagpur</strong>, brainstorming scalable technology ventures, business models, and collaborative problem-solving pipelines.
+          </p>
+          <div class="chip-container">
+            <span class="skill-chip"><i class="fa-solid fa-users"></i> E-Club Member</span>
+            <span class="skill-chip"><i class="fa-solid fa-rocket"></i> Startup Ideation</span>
+            <span class="skill-chip"><i class="fa-solid fa-trophy"></i> 2x Hackathons</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Work Experience</span>
+        <h2 class="section-title">Startup Journey</h2>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--accent);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <div>
+            <h3>Lead Editor & Script Writer</h3>
+            <span style="color: var(--accent); font-weight: 600; font-size: 0.95rem;">Myriad Production</span>
+          </div>
+          <span class="tag">Active Role</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+          Leading narrative design and technical creative editing workflows for an emerging media-tech startup focused on developing AI-generated films. Combining prompt engineering, structured storytelling, and post-production workflows to build next-generation cinema.
+        </p>
+        <div class="chip-container">
+          <span class="skill-chip"><i class="fa-solid fa-film"></i> AI Film Pipelines</span>
+          <span class="skill-chip"><i class="fa-solid fa-pen-nib"></i> Script Writing</span>
+          <span class="skill-chip"><i class="fa-solid fa-clapperboard"></i> Video Post-Production</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Core Competencies</span>
+        <h2 class="section-title">Technical Stack</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h4 style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.75rem;"><i class="fa-solid fa-code" style="color: var(--accent);"></i> Programming</h4>
+          <div class="chip-container">
+            <span class="skill-chip"><i class="fa-brands fa-python"></i> Python</span>
+            <span class="skill-chip"><i class="fa-solid fa-c"></i> C Language</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4 style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.75rem;"><i class="fa-solid fa-layer-group" style="color: var(--accent);"></i> Platforms & Tools</h4>
+          <div class="chip-container">
+            <span class="skill-chip"><i class="fa-brands fa-linux"></i> Linux</span>
+            <span class="skill-chip"><i class="fa-brands fa-github"></i> GitHub</span>
+            <span class="skill-chip"><i class="fa-solid fa-laptop-code"></i> VS Code</span>
+          </div>
+        </div>
+        <div class="card">
+          <h4 style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.75rem;"><i class="fa-solid fa-brain" style="color: var(--accent);"></i> Emerging Tech</h4>
+          <div class="chip-container">
+            <span class="skill-chip"><i class="fa-solid fa-robot"></i> Generative AI</span>
+            <span class="skill-chip"><i class="fa-solid fa-bolt"></i> Rapid Prototyping</span>
+            <span class="skill-chip"><i class="fa-solid fa-lightbulb"></i> Startup Ideation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Portfolio Work</span>
+        <h2 class="section-title">Hackathon & Engineering Projects</h2>
+      </div>
+      <div class="grid-2">
+        <!-- Project 1 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="project-header">
+              <div>
+                <span class="tag" style="margin-bottom: 0.5rem; display: inline-block;">Hackathon Project</span>
+                <h3 class="project-title">Smart Disaster Alert System</h3>
+              </div>
+              <i class="fa-solid fa-triangle-exclamation" style="font-size: 1.5rem; color: #f59e0b;"></i>
+            </div>
+            <p class="project-desc">
+              A critical notification and alert application engineered to safeguard lives by detecting perilous weather and environmental events, automatically ringing the user's phone, and pushing instant climate warnings.
+            </p>
+            <div class="chip-container" style="margin-bottom: 1.5rem;">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">VS Code</span>
+              <span class="skill-chip">Alert API</span>
+            </div>
+          </div>
+          <div>
+            <a href="https://github.com/Nauman-code321" target="_blank" rel="noopener noreferrer" class="project-link">
+              <i class="fa-brands fa-github"></i> Source on GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="project-header">
+              <div>
+                <span class="tag" style="margin-bottom: 0.5rem; display: inline-block;">Hackathon Project</span>
+                <h3 class="project-title">AgriClimate & Soil Advisor</h3>
+              </div>
+              <i class="fa-solid fa-seedling" style="font-size: 1.5rem; color: #10b981;"></i>
+            </div>
+            <p class="project-desc">
+              A smart decision-support tool helping farmers evaluate soil nutrients, localized weather patterns, and ongoing climate shifts to recommend the most viable crops, maximize yields, and reduce crop loss risks.
+            </p>
+            <div class="chip-container" style="margin-bottom: 1.5rem;">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">VS Code</span>
+              <span class="skill-chip">Data Modeling</span>
+            </div>
+          </div>
+          <div>
+            <a href="https://github.com/Nauman-code321" target="_blank" rel="noopener noreferrer" class="project-link">
+              <i class="fa-brands fa-github"></i> Source on GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academics & Credentials -->
+  <section id="academics" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Milestones</span>
+        <h2 class="section-title">Education & Credentials</h2>
+      </div>
+      <div class="grid-2">
+        <div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2022 – 2026</div>
+              <h3 class="timeline-title">B.Tech in Computer Science & Engineering</h3>
+              <p class="timeline-subtitle">Symbiosis Institute of Technology (SIT), Nagpur</p>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">
+                Currently pursuing <strong>Semester 5 (3rd Year)</strong>. Coursework includes core computer science fundamentals, data structures, operating systems, and Python-based solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom: 1.25rem;">Certifications & Recognitions</h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="card cert-item" onclick="openCert('Industry Internship Certificate', 'Proof of professional internship experience and software delivery under startup pipelines.')">
+              <div class="cert-info">
+                <i class="fa-solid fa-award cert-icon"></i>
+                <div>
+                  <strong>Internship Certificate</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Verified Industry Exposure</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--text-muted); font-size: 0.85rem;"></i>
+            </div>
+
+            <div class="card cert-item" onclick="openCert('Hackathon Achievement Certificate', 'Awarded for competitive problem solving and prototype engineering.')">
+              <div class="cert-info">
+                <i class="fa-solid fa-trophy cert-icon"></i>
+                <div>
+                  <strong>Hackathon Certificate</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Competitive Engineering Prototype</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--text-muted); font-size: 0.85rem;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visitor Counter & Guestbook -->
+  <section id="visitors" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Digital Footprint</span>
+        <h2 class="section-title">Visitor Log & Live Counter</h2>
+      </div>
+
+      <div class="grid-2">
+        <!-- Live Count Card -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2.5rem 1.5rem;">
+          <i class="fa-solid fa-users-viewfinder" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+          <span style="font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">Total Portfolio Visits</span>
+          <h3 id="visitCount" style="font-size: 3.5rem; font-weight: 800; color: var(--accent); margin: 0.5rem 0;">...</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Real-time tracking synchronized via cloud database</p>
+        </div>
+
+        <!-- Check-in & List Card -->
+        <div class="card">
+          <h3 style="margin-bottom: 0.75rem;"><i class="fa-solid fa-signature" style="color: var(--accent);"></i> Sign the Guestbook</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">
+            Faculty, evaluators, or recruiters: record your visit live on this portfolio.
+          </p>
+
+          <form id="visitorForm" style="display: flex; gap: 0.6rem; margin-bottom: 1.25rem;">
+            <input type="text" id="visitorName" class="form-control" placeholder="Your Name / ID (e.g. Evaluator / @visitor)" required style="flex: 1;" />
+            <button type="submit" class="btn btn-primary" style="padding: 0.6rem 1.2rem; white-space: nowrap;">
+              <i class="fa-solid fa-check"></i> Check In
+            </button>
+          </form>
+
+          <h4 style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.05em;">Recent Check-ins:</h4>
+          <div id="visitorList" style="max-height: 180px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.5rem; padding-right: 0.3rem;">
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Connecting to guestbook...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Get in Touch</span>
+        <h2 class="section-title">Connect With Me</h2>
+      </div>
+      <div class="grid-2">
+        <div>
+          <p style="color: var(--text-muted); margin-bottom: 2rem;">
+            I am always open to discussing new project ideas, startup collaborations, research concepts, or internship opportunities.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <i class="fa-solid fa-envelope" style="color: var(--accent); font-size: 1.2rem; width: 20px;"></i>
+              <a href="mailto:nauman.khan.batch2024@sitnagpur.siu.edu.in" style="color: var(--text-main); text-decoration: none; font-size: 0.95rem;">
+                nauman.khan.batch2024@sitnagpur.siu.edu.in
+              </a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <i class="fa-brands fa-github" style="color: var(--accent); font-size: 1.2rem; width: 20px;"></i>
+              <a href="https://github.com/Nauman-code321" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); text-decoration: none; font-size: 0.95rem;">
+                github.com/Nauman-code321
+              </a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <i class="fa-brands fa-linkedin" style="color: var(--accent); font-size: 1.2rem; width: 20px;"></i>
+              <a href="https://www.linkedin.com/in/nauman-khan-97a97a320" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); text-decoration: none; font-size: 0.95rem;">
+                linkedin.com/in/nauman-khan-97a97a320
+              </a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <i class="fa-solid fa-location-dot" style="color: var(--accent); font-size: 1.2rem; width: 20px;"></i>
+              <span style="color: var(--text-muted); font-size: 0.95rem;">Nagpur, Maharashtra, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Evaluator / Recruiter Name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" class="form-control" placeholder="name@sitnagpur.siu.edu.in" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-control" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-paper-plane"></i> Send Direct Email
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificate View Modal -->
+  <div class="modal" id="certModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeCert()">&times;</button>
+      <h3 id="modalTitle" style="margin-bottom: 0.5rem;">Certificate Details</h3>
+      <p id="modalDesc" style="color: var(--text-muted); margin-bottom: 1.5rem;"></p>
+      <div style="background: var(--bg); border: 2px dashed var(--surface-border); border-radius: 8px; padding: 3rem 1rem; text-align: center; color: var(--text-muted);">
+        <i class="fa-solid fa-file-pdf" style="font-size: 3rem; color: var(--accent); margin-bottom: 0.75rem;"></i>
+        <p>Document preview placeholder.</p>
+        <small>Place your certificate image or PDF scan into your repository to render it directly.</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/Nauman-code321" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/nauman-khan-97a97a320" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:nauman.khan.batch2024@sitnagpur.siu.edu.in" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+      <p>© 2026 Nauman Khan • Built for CA3 Evaluation • SIT Nagpur</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+      
+      const icon = themeToggleBtn.querySelector('i');
+      icon.className = newTheme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    });
+
+    // Certificate Modal
+    function openCert(title, description) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = description;
+      document.getElementById('certModal').classList.add('active');
+    }
+
+    function closeCert() {
+      document.getElementById('certModal').classList.remove('active');
+    }
+
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('certModal');
+      if (e.target === modal) {
+        closeCert();
+      }
+    });
+
+    // Mailto Handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+      const bodyContent = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      
+      window.location.href = `mailto:nauman.khan.batch2024@sitnagpur.siu.edu.in?subject=${subject}&body=${bodyContent}`;
+    });
+  </script>
+
+  <!-- Firebase Live Visitor & Guestbook Integration -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { 
+      getFirestore, 
+      doc, 
+      getDoc, 
+      setDoc, 
+      updateDoc, 
+      increment, 
+      collection, 
+      addDoc, 
+      query, 
+      orderBy, 
+      limit, 
+      onSnapshot,
+      serverTimestamp 
+    } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+    // Replace with your keys from console.firebase.google.com
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    let db;
+    try {
+      const app = initializeApp(firebaseConfig);
+      db = getFirestore(app);
+      initVisitorTracking();
+    } catch (e) {
+      // Fallback for immediate offline demo or testing without API keys
+      console.warn("Firebase config not loaded yet, using fallback counter:", e);
+      let localCount = parseInt(localStorage.getItem('nk_visits') || '12') + 1;
+      localStorage.setItem('nk_visits', localCount);
+      document.getElementById('visitCount').textContent = localCount;
+      document.getElementById('visitorList').innerHTML = `
+        <div style="display:flex;justify-content:space-between;padding:0.45rem 0.8rem;border-radius:6px;border:1px solid var(--surface-border);font-size:0.85rem;">
+          <span><i class="fa-solid fa-user-check" style="color:var(--accent);margin-right:0.4rem;"></i> <strong>Demo Evaluator</strong></span>
+          <span style="color:var(--text-muted);font-size:0.75rem;">Just now</span>
+        </div>
+      `;
+    }
+
+    async function initVisitorTracking() {
+      if (!db) return;
+      const statsRef = doc(db, "portfolio_stats", "visits");
+      const visitCountEl = document.getElementById("visitCount");
+
+      try {
+        const docSnap = await getDoc(statsRef);
+        if (!docSnap.exists()) {
+          await setDoc(statsRef, { count: 1 });
+          visitCountEl.textContent = "1";
+        } else {
+          await updateDoc(statsRef, { count: increment(1) });
+          const updatedSnap = await getDoc(statsRef);
+          visitCountEl.textContent = updatedSnap.data().count;
+        }
+      } catch (err) {
+        console.error("Counter increment warning:", err);
+        visitCountEl.textContent = "1";
+      }
+
+      // Guestbook Stream
+      const guestbookRef = collection(db, "guestbook");
+      const q = query(guestbookRef, orderBy("timestamp", "desc"), limit(8));
+
+      onSnapshot(q, (snapshot) => {
+        const listEl = document.getElementById("visitorList");
+        listEl.innerHTML = "";
+
+        if (snapshot.empty) {
+          listEl.innerHTML = '<span style="font-size:0.85rem;color:var(--text-muted);">No check-ins yet. Be the first!</span>';
+          return;
+        }
+
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          const item = document.createElement("div");
+          item.style.cssText = "display:flex;justify-content:space-between;align-items:center;background:var(--surface);padding:0.45rem 0.8rem;border-radius:6px;border:1px solid var(--surface-border);font-size:0.85rem;";
+          
+          item.innerHTML = `
+            <span><i class="fa-solid fa-user-check" style="color:var(--accent);margin-right:0.4rem;"></i> <strong>${data.name}</strong></span>
+            <span style="color:var(--text-muted);font-size:0.75rem;">${data.timestamp ? new Date(data.timestamp.toDate()).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Just now'}</span>
+          `;
+          listEl.appendChild(item);
+        });
+      });
+    }
+
+    // Guestbook form submission
+    document.getElementById("visitorForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const input = document.getElementById("visitorName");
+      const name = input.value.trim();
+
+      if (!name) return;
+
+      if (db) {
+        try {
+          await addDoc(collection(db, "guestbook"), {
+            name: name,
+            timestamp: serverTimestamp()
+          });
+          input.value = "";
+        } catch (err) {
+          console.error("Error signing guestbook:", err);
+          alert("Could not register name right now. Please verify Firebase permissions.");
+        }
+      } else {
+        // Local preview addition
+        const listEl = document.getElementById("visitorList");
+        const item = document.createElement("div");
+        item.style.cssText = "display:flex;justify-content:space-between;align-items:center;background:var(--surface);padding:0.45rem 0.8rem;border-radius:6px;border:1px solid var(--surface-border);font-size:0.85rem;";
+        item.innerHTML = `
+          <span><i class="fa-solid fa-user-check" style="color:var(--accent);margin-right:0.4rem;"></i> <strong>${name}</strong></span>
+          <span style="color:var(--text-muted);font-size:0.75rem;">Just now</span>
+        `;
+        listEl.prepend(item);
+        input.value = "";
+      }
+    });
+  </script>
+</body>
+</html>
